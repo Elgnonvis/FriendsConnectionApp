@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    #has_many :blogs
+    has_many :posts
 
     validates :name, presence: true, length: {maximum: 30}
     validates :email, presence: true,
