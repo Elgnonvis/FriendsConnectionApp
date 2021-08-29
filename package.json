@@ -1,5 +1,8 @@
 {
   "name": "AppFacebook",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "^5.1.0",
+    "jquery": "^3.6.0"
+  }
 }
