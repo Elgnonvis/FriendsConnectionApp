@@ -1,5 +1,5 @@
 <div class="panel panel-default">
-    <div class="panel-heading">INSCRIPTION</div>
+    <div class="panel-heading"><h1>INSCRIPTION</h1> </div><br>
         <div class="panel-body">
 
             <%= form_with(model: @user, local: true, html: {class:'form-horizontal'}) do |f| %>
@@ -17,17 +17,17 @@
                 
 
                 <div class="form-group">
-                    <%= f.label :name, class: 'col-md-4 control-label' %>
+                    <%= f.label :name, class: 'col-md-4 control-label' %><br>
                     <div class="col-md-6">
                         <%= f.text_field :name, class: 'form-control' %>
                     </div>
-                </div>
+                </div><br>
 
                 <div class="form-group">
                     <%= f.label :email, class: 'col-md-4 control-label' %>
                     <div class="col-md-6">
                         <%= f.email_field :email, class: 'form-control' %>
-                    </div>
+                    </div><br>
                 </div>
 
                 <div class="form-group">
@@ -35,22 +35,21 @@
                     <div class="col-md-6">
                         <%= f.password_field :password, class: 'form-control' %>
                     </div>
-                </div>
+                </div><br>
 
                 <div class="form-group">
                     <%= f.label :password_confirmation, class: 'col-md-4 control-label' %>
                     <div class="col-md-6">
                         <%= f.password_field :password_confirmation, class: 'form-control' %>
                     </div>
-                </div>
+                </div><br>
 
-                <div class="form-group">
-                    <div class="col-md-6 col-md-offset-4">
-                        <button class="btn btn-success" type="submit">  <%= f.submit "Créer mon compte" %> </button>
-                    </div>
+                <div class="col-md-6 col-md-offset-4">
+                    <button class="btn btn-success" type="submit"> Créer mon compte</button>
                 </div>
 
             <% end %>
+            <br>
         </div>
     </div>
 </div>

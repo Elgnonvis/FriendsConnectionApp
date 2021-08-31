@@ -1,0 +1,20 @@
+
+<%= form_with(model: @post, local: true, url: posts_path) do |f| %>  
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <h2> Ecran de confirmation</h2><br>
+        <%= image_tag(@post.illustration.url) if @post.illustration && @post.illustration.url %>
+        <div class="mt-4"> <strong>Description:</strong> <%= @post.description %></div>
+        <%= f.hidden_field :illustration_cache %>
+        <%= f.hidden_field :description %>
+        <button class="btn btn-success m-2" type="submit"> Confirmer</button>
+    </div>
+<% end %>
+<div>
+    <%= form_with(model:@post, url:new_post_path, local:true, method:"get") do |f| %>
+        <%= f.hidden_field :illustration_cache %>
+        <%= f.hidden_field :description %>
+        <button class="btn btn-danger mb-5 w-100" type="submit" name ="back">Annuler</button>
+    <% end %>      
+</div><br><br><br><br>
+
+

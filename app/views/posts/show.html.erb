@@ -1,19 +1,27 @@
-<p id="notice"><%= notice %></p>
+<div class="d-flex container justify-content-center align-itmes-center" style = "padding-top: 1rem;">
+      <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Illustration:</strong>
-  <%= @post.illustration %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @post.user %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+      <div class="card text-center" style="width: 20rem;"> <br>
+        <div class="card-img-top">
+            <%= image_tag(@post.illustration.url) if @post.illustration.url%>
+        </div>
+        <div class="card-body">
+            <p class="card-text text-justify"><%= @post.description %></p>
+        </div><br>
+        <blockquote class="blockquote mb-0">
+          <footer class="blockquote-footer">
+            Posté par : <cite title="Source Title"><%= @post.user.name %></cite>
+          </footer> 
+        </blockquote>
+      </div>
+<% if @post.user == current_user %>
+        <div class="form-actions mb-4 row"> 
+        <div class="col-4"></div>
+            <a href = "<%= edit_post_path(@post)%>" class="btn btn-danger col-2">Modifier</a> 
+            <div class="col-1"></div>
+            <a href = "<%= posts_path%>" class="btn btn-primary col-2"> Retour</a>
+            <div class="col-2"></div>
+        </div>
+      </div>
+<% end %>
+</div>

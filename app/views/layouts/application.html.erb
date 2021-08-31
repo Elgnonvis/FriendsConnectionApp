@@ -12,31 +12,62 @@
   </head>
 
   <body>
-   
-  <div class="container" style = "padding-top: 5rem">
+    <header class="p-2 bg-primary text-white fixed-top">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <a href="/" class="navbar-brand d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"><span class="fb">Facebook</span>
+          </a>
+
+          <ul class="nav col-6 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="/" class="nav-link px-2 text-white">Home</a></li>
+          </ul>
+
+      <% if logged_in? %> 
+      <div class="text-end me-4">
+        <a href="<%= new_post_path %>" class="btn btn-danger" role="button">Ajouter un Post</a>
+      </div>
+
+        <div class="dropdown text-end">
+          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="/avatar.png" alt="mdo" width="32" height="32" class="rounded-circle">
+          </a>
+          <ul class="dropdown-menu text-small text-decoration-none" aria-labelledby="dropdownUser1">
+            <li class = "btn btn-secondary m-2 justify-content-center disabled "><a class="dropdown-item" href="">Mon profil</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li class ="btn btn-danger m-2 justify-content-center text-decoration-none">
+                <%= link_to "Se déconnecter", session_path(current_user.id), method: :delete, class:"btn" %>
+            </li>
+  
+          </ul>
+        </div>
+
+      <% else %> 
+        <div class="text-end text-decoration-none">
+            <a class="btn btn-success me-2" href="<%= new_session_path %>" role="button">Se connecter</a>
+            <a class="btn btn-warning" href="<%= new_user_path %>" role="button">S'inscrire</a>
+        </div> 
+
+       
+
+      <% end %> 
+        </div>
+      </div>
+</header>
+
+  <div class="container" style = "padding-top: 6rem">
 
     <% flash.each do |name, msg| %>
       <div class="alert alert-<%= name %>" role = "alert"> <%= msg %></div>
     <% end %>
 
-    <% if logged_in? %> 
-      <%= link_to "Profile", user_path(current_user.id) %> 
-      <%= link_to "Se deconnecter", session_path(current_user.id), method: :delete %> 
-    <% else %> 
-      <%= link_to "S'inscrire", new_user_path %> 
-      <%= link_to "Se connecter", new_session_path %> 
-    <% end %> 
-
     <%= yield %>
 
   </div>
 
-  <footer class="bg-primary text-white">
+  <footer class="bg-primary text-white fixed-bottom">
     <div class="text-center p-3">
-      © Dive into code ~ Août 2021 <br>
-      Copyright: <a class="text-white" href="http://bit.ly/EmiG">Emile GBENONCHI</a>
+      © Dive into code ~ Août 2021 Copyright: <a class="text-white" href="http://bit.ly/EmiG">Emile GBENONCHI</a>
     </div>
   </footer>
-
   </body>
 </html>

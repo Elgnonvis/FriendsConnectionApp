@@ -16,7 +16,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-gem 'carrierwave', '~> 2.0'
+gem 'simple_form', '~> 5.1'
+
 
 
 ##################################
@@ -32,6 +33,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
 gem 'mini_magick', '~> 4.8'
+gem 'carrierwave', '~> 2.0'
+gem 'mimemagic'
 
 
 # Use Capistrano for deployment

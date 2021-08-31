@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
       flash[:success] = 'Connexion réussie'
-      redirect_to user_path(user.id)
+      redirect_to posts_url
 
       else
         flash[:danger] = 'Identifiants incorrects'
@@ -23,6 +23,6 @@ class SessionsController < ApplicationController
   def destroy
     session.delete(:user_id)
     redirect_to new_session_path
-    flash[:notice] = 'Déconnexion réussie'
+    flash[:success] = 'Déconnexion réussie'
   end
 end

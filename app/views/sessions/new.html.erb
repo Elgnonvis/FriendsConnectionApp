@@ -1,28 +1,30 @@
 <div class="panel panel-default">
-    <div class="panel-heading">Connexion</div>
+    <div class="panel-heading"><h1>CONNEXION</h1></div>
+      <br>
         <div class="panel-body">
 
             <%= form_with(scope: :session, url:sessions_path, local: true) do |f| %> 
 
-                <div class="form-group">
-                    <%= f.label :email, class: 'col-md-4 control-label' %>
+                <div class="mb-3">
+                    <%= f.label :email, class: 'col-md-4 form-label' %>
                     <div class="col-md-6">
                         <%= f.email_field :email, class: 'form-control' %>
                     </div>
                 </div>
 
+              
                 <div class="form-group">
                     <%= f.label :password, class: 'col-md-4 control-label' %>
                     <div class="col-md-6">
                         <%= f.password_field :password, class: 'form-control' %>
                     </div>
-                </div>
+                </div> <br>
 
                 <div class="form-group">
                     <div class="col-md-6 col-md-offset-4">
-                        <button class="btn btn-success" type="submit">  <%= f.submit "Se connecter" %> </button>
+                        <button class="btn btn-success" type="submit">Se connecter </button>
                     </div>
-                </div>
+                </div> <br>
 
             <% end %>
         </div>
